@@ -37,7 +37,6 @@ echo.
 :: +---------------------------------------------------+
 :: ! Check if BIOS is already UEFI                     !
 :: +---------------------------------------------------+
-    echo Checking current firmware type...
     for /f "delims=" %%A in ('powershell -command "$env:firmware_type"') do set firmware=%%A
     if /I "%firmware%"=="UEFI" (
        echo Operating system is already running in UEFI mode.
@@ -49,7 +48,6 @@ echo.
 :: +---------------------------------------------------+
 :: ! Check Partition Count                             !
 :: +---------------------------------------------------+
-    echo Checking partition count...
     for /f "skip=1 tokens=2 delims==" %%A in ('wmic diskdrive get partitions /value ^| find "="') do set partitions=%%A
     if "%partitions%"=="" set partitions=0
     if %partitions% GTR 3 (
@@ -63,7 +61,6 @@ echo.
 :: +---------------------------------------------------+
 :: ! Validate MBR2GPT Conversion                       !
 :: +---------------------------------------------------+
-    echo Running MBR2GPT validation...
     mbr2gpt /validate /allowfullos | find /i "MBR2GPT: Validation completed successfully" >nul
     if errorlevel 1 (
         echo MBR2GPT failed to validate for UEFI. Conversion cannot continue.
@@ -75,7 +72,6 @@ echo.
 :: +---------------------------------------------------+
 :: ! Check Windows Recovery Environment (WinRE)        !
 :: +---------------------------------------------------+
-    echo Checking Windows Recovery Environment status...
     for /f "tokens=2 delims=:" %%A in ('reagentc /info ^| find /i "Windows RE status"') do set restatus=%%A
     set restatus=%restatus: =%
     if /I "%restatus%"=="Disabled" (
@@ -91,7 +87,6 @@ echo.
 :: +---------------------------------------------------+
 :: ! Convert to GPT                                    !
 :: +---------------------------------------------------+
-    echo Starting MBR to GPT conversion...
     mbr2gpt /convert /allowfullos
     if errorlevel 1 (
         echo Conversion failed. Please review the log above.
@@ -103,7 +98,6 @@ echo.
 :: +---------------------------------------------------+
 :: ! Verify Conversion Result                          !
 :: +---------------------------------------------------+
-    echo Verifying partition style...
     wmic diskdrive get PartitionStyle | find /i "GPT" >nul
     if errorlevel 1 (
         echo Disk is still MBR. Conversion did not succeed.
