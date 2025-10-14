@@ -11,10 +11,12 @@
   :: !   logged-on user, and local user accounts. The output is formatted for             !
   :: !   easy reading and suitable for MSP ConnectWise CMD scripts.                       !
   :: !                                                                                    !
+  :: !                                                                                    !
   :: ! Purpose:                                                                           !
   :: !   To provide a comprehensive, quick snapshot of a system’s hardware and            !
   :: !   software configuration for IT administrators performing audits, support,         !
   :: !   or troubleshooting.                                                              !
+  :: !                                                                                    !
   :: !                                                                                    !
   :: ! Example Use Case:                                                                  !
   :: !   1. IT Admin remotely logs into a client machine.                                 !
@@ -22,8 +24,10 @@
   :: !      troubleshooting.                                                              !
   :: !   3. The script outputs all information to the console in a clean, readable        !
   :: !      format.                                                                       !
+  :: !                                                                                    !
+  :: !                                                                                    !
+  :: !                                                                                    !
   :: +------------------------------------------------------------------------------------+
-
 
 echo ===================================================
 echo              SYSTEM INFORMATION REPORT             
