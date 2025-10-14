@@ -16,4 +16,4 @@ This repository contains a set of CMD scripts for routine administrative and aut
 
 1. **Download or clone the repository:**
 ```bash
-git clone https://github.com/YourUsername/ConnectWise-CMD-Scripts.git
+git clone https://github.com/nelsonbrett55/ConnectWise-CMD-Script.git
