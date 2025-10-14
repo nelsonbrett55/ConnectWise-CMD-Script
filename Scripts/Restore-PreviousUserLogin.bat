@@ -23,6 +23,10 @@
   :: !   2. After the IT Admin completes their work, run Restore-PreviousUserLogin.bat.   !
   :: !   3. IT Admin logs out.                                                            !
   :: !   4. The Windows login screen will now display the employee's username.            !
+  :: !                                                                                    !
+  :: !                                                                                    !
+  :: !                                                                                    !
+  :: !                                                                                    !
   :: +------------------------------------------------------------------------------------+
 
 echo ===================================================
